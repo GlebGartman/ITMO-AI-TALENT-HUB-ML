@@ -401,6 +401,7 @@ plt.show()
 Используется стратификация по целевой переменной, чтобы сохранить распределение классов.
 
 ```python
+
 from sklearn.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(
@@ -424,3 +425,26 @@ X_train, X_test, y_train, y_test = train_test_split(
 ```python
 from sklearn.metrics import f1_score, roc_auc_score
 ```
+
+---
+
+## Константная модель
+
+В качестве базового ориентира используется константная модель — DummyClassifier.
+
+Данная модель всегда предсказывает наиболее частый класс в обучающей выборке
+
+
+```python
+from sklearn.dummy import DummyClassifier
+
+dummy = DummyClassifier(strategy='most_frequent', random_state=42)
+dummy.fit(X_train, y_train)
+
+y_pred_dummy = dummy.predict(X_test)
+
+print("F1 baseline:", f1_score(y_test, y_pred_dummy))
+```
+
+---
+
