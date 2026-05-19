@@ -448,3 +448,33 @@ print("F1 baseline:", f1_score(y_test, y_pred_dummy))
 
 ---
 
+## Логистическая регрессия
+
+В качестве базовой модели была выбрана логистическая регрессия.
+
+Данная модель является простой и интерпретируемой, что позволяет
+использовать её как отправную точку для оценки качества.
+
+```python
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
+
+pipe_lr = Pipeline([
+    ('scaler', StandardScaler()),
+    ('model', LogisticRegression(max_iter=1000, random_state=42))
+])
+
+pipe_lr.fit(X_train, y_train)
+
+y_pred_lr = pipe_lr.predict(X_test)
+y_proba_lr = pipe_lr.predict_proba(X_test)[:, 1]
+
+print("F1 Logistic:", f1_score(y_test, y_pred_lr))
+print("ROC AUC Logistic:", roc_auc_score(y_test, y_proba_lr))
+```
+
+
+**Результаты на тестовой выборке:**
+- F1 ≈ 0.14
+- ROC AUC ≈ 0.96
