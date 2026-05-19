@@ -605,7 +605,6 @@ else:
     shap.summary_plot(shap_values, X_sample)
 ```
 
-### 🧠 График SHAP
 ![График SHAP](https://drive.google.com/uc?export=view&id=1tcA6IqbifhMVuCjEmH-Dtd1wsbprZ-ak)
 
 ---
