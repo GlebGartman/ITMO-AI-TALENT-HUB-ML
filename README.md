@@ -111,7 +111,6 @@ events = pd.read_csv('events.csv')
 events.head(20)
 ```
 
-### 📊 Предпросмотр датасета `events.csv`
 ![Вывод первых строк датасета events.csv](https://drive.google.com/uc?export=view&id=19PZUhsl1Wiu33bt_mz1Qcn0pdmbw_7hQ)
 
 Датасет содержит информацию о действиях пользователей в интернет магазине. Каждая строка представляет собой отдельное событие взаимодействия пользователя с товаром.
@@ -131,7 +130,6 @@ events.head(20)
 events.describe()
 ```
 
-### 📊 Статистика датасета
 ![Статистика датасета](https://drive.google.com/uc?export=view&id=1BBqAZ93MHMudnV75hEqIpI7U9n-brn3w)
 
 Датасет содержит большое количество наблюдений, что позволяет проводить устойчивый анализ пользовательского поведения.
@@ -154,7 +152,6 @@ plt.title('Распределение типов событий')
 plt.show()
 ```
 
-### 📊 Распределение типов событий
 ![Распределение типов событий](https://drive.google.com/uc?export=view&id=1X9wyDF8YWqGUDs5Jlr1fX_76-EHEeG1k)
 
 Анализ распределения событий показывает, что основную долю составляют просмотры товаров.
@@ -203,7 +200,6 @@ plt.ylabel('Частота')
 plt.show()
 ```
 
-### 👥 Распределение активности пользователей
 ![Распределение активности пользователей](https://drive.google.com/uc?export=view&id=1sF7HuQAH694yZpGO3pBtNHnJrUIw4VPV)
 
 ```python
@@ -212,7 +208,6 @@ plt.title('Boxplot активности пользователей')
 plt.show()
 ```
 
-### 📦 Boxplot активности пользователей
 ![Boxplot активности пользователей](https://drive.google.com/uc?export=view&id=1Ij_D-QFjKeubPjDtnNXq9nl4OD5Jf1EQ)
 
 Для более детального анализа распределения активности пользователей была применена логарифмическая шкала, что позволило сгладить влияние выбросов и лучше визуализировать основную массу данных.
@@ -235,7 +230,6 @@ plt.title('Воронка событий')
 plt.show()
 ```
 
-### 🔻 Воронка событий
 ![Воронка событий](https://drive.google.com/uc?export=view&id=1epAR8jLtpimCerotg05d2h_iiJ6J-s3v)
 
 Анализ воронки событий показывает последовательное снижение количества пользователей на каждом этапе взаимодействия с платформой.
@@ -262,7 +256,6 @@ plt.title('Топ 10 товаров по количеству событий')
 plt.show()
 ```
 
-### 🏆 Топ 10 товаров по количеству событий
 ![Топ 10 товаров по количеству событий](https://drive.google.com/uc?export=view&id=1pQHbMzTs_Oskw7QUjEe_W3KrrDZxehNS)
 
 Анализ наиболее популярных товаров показывает, что существует группа товаров, которые значительно выделяются по количеству взаимодействий пользователей.
@@ -288,7 +281,6 @@ plt.title('Активность пользователей по дням')
 plt.show()
 ```
 
-### 📅 Активность пользователей по дням
 ![Активность пользователей по дням](https://drive.google.com/uc?export=view&id=1_xK_Jm-lxJJQY92KelT2dZfRBEmEnBN_)
 
 Анализ активности пользователей во времени показывает наличие выраженных колебаний в течение всего рассматриваемого периода.
@@ -309,7 +301,6 @@ result = events['is_buyer'].value_counts(normalize=True) * 100
 print(result)
 ```
 
-### 🛒 Распределение покупателей и непокупателей
 ![Распределение покупателей и непокупателей](https://drive.google.com/uc?export=view&id=1TxBRJ-aVAQ-WorLkhitVBU7KVCY5su_Q)
 
 Анализ распределения пользователей показывает, что подавляющее большинство пользователей не совершают покупку.
@@ -325,7 +316,6 @@ user_events = events.groupby(['visitorid', 'event']).size().unstack(fill_value=0
 user_events.head(20)
 ```
 
-### 👤 User-level таблица
 ![User-level таблица](https://drive.google.com/uc?export=view&id=1TNXfheAwKfxp-nTqSaIQd2UZzIB3ZV57)
 
 Для дальнейшего анализа была построена агрегированная таблица на уровне пользователей, в которой отражено количество различных типов событий для каждого пользователя.
@@ -349,7 +339,6 @@ plt.title('Связь просмотров и покупок')
 plt.show()
 ```
 
-### 🔗 Связь просмотров и покупок
 ![Связь просмотров и покупок](https://drive.google.com/uc?export=view&id=1EypopadHl9eAt6VhAOFb2YyIUdm63riU)
 
 Анализ зависимости между количеством просмотров и покупок показывает наличие положительной связи между данными показателями.
@@ -499,7 +488,8 @@ print("F1 RF:", f1_score(y_test, y_pred_rf))
 print("ROC AUC RF:", roc_auc_score(y_test, y_proba_rf))
 ```
 
-> **Рисунок 12.** Метрики алгоритма Random Forest
+### 🌲 Метрики алгоритма Random Forest
+![Метрики алгоритма Random Forest](https://drive.google.com/uc?export=view&id=19xZcJZTLLl_SECG-X_GQUtWAjHpdN0_W)
 
 ---
 
@@ -557,7 +547,8 @@ print("F1 tuned:", f1_score(y_test, y_pred_best))
 print("ROC AUC tuned:", roc_auc_score(y_test, y_proba_best))
 ```
 
-> **Рисунок 13.** Итоговые метрики
+### ✅ Итоговые метрики
+![Итоговые метрики](https://drive.google.com/uc?export=view&id=1VbKSrRZAClg_TvcUzY9kfUlT-t9RPgdX)
 
 ---
 
@@ -580,7 +571,7 @@ plt.title('Важность признаков')
 plt.show()
 ```
 
-> **Рисунок 14.** Важность признаков
+![Важность признаков](https://drive.google.com/uc?export=view&id=1khTYztZR1vILj7K6DiCNVNOVnz31R_Ua)
 
 ---
 
@@ -614,7 +605,8 @@ else:
     shap.summary_plot(shap_values, X_sample)
 ```
 
-> **Рисунок 15.** График SHAP
+### 🧠 График SHAP
+![График SHAP](https://drive.google.com/uc?export=view&id=1tcA6IqbifhMVuCjEmH-Dtd1wsbprZ-ak)
 
 ---
 
